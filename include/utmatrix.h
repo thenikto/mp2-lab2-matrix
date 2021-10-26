@@ -101,10 +101,10 @@ ValType& TVector<ValType>::operator[](int pos) {
 template <class ValType> // сравнение
 bool TVector<ValType>::operator==(const TVector& v) const
 {
-    bool a = 1;
-    if (v.Size != Size) a = 0;
+    bool a = true;
+    if (v.Size != Size) a = false;
     for (int i = 0; i < Size; i++) {
-        if (pVector[i] != v.pVector[i]) a = 0;
+        if (pVector[i] != v.pVector[i]) a = false;
     }
     return a;
 }
@@ -112,14 +112,13 @@ bool TVector<ValType>::operator==(const TVector& v) const
 template <class ValType> // сравнение
 bool TVector<ValType>::operator!=(const TVector& v) const
 {
-    bool a = 0;
-    if (v.Size != Size) a = 1;
+    bool a = false;
+    if (v.Size != Size) a = true;
     for (int i = 0; i < Size; i++) {
-        if (pVector[i] != v.pVector[i]) a = 1;
+        if (pVector[i] != v.pVector[i]) a = true;
     }
     return a;
 }
-
 template <class ValType> // присваивание
 TVector<ValType>& TVector<ValType>::operator=(const TVector& v)
 {
@@ -298,3 +297,4 @@ TMatrix<ValType> TMatrix<ValType>::operator-(const TMatrix<ValType>& mt)
 }
 
 #endif
+
